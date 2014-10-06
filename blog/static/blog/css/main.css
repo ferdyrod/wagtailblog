@@ -1,0 +1,16 @@
+
+@media (min-width:1024px) { 
+    .navbar > .container {
+        text-align: center;
+    }
+    .navbar-header,.navbar-brand,.navbar .navbar-nav,.navbar .navbar-nav > li {
+        float: none;
+        display: inline-block;
+    }
+    .collapse.navbar-collapse {
+        float: none;
+        display: inline-block!important;
+        width: auto;
+        clear: none;
+    }
+}

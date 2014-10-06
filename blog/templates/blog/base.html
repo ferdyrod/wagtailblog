@@ -1,0 +1,46 @@
+{% load compress static wagtailuserbar %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/normalize.css' %}">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap-theme.min.css' %}">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/css/main.css' %}">
+
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+        
+    <div class="container">
+    
+        {% include 'blog/includes/header.html' %}
+
+
+
+        {% block content %}{% endblock %}
+
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'blog/js/bootstrap.js' %}"></script>
+
+
+        {% block extra_js %}
+            
+        {% endblock %}
+    </body>
+</html>

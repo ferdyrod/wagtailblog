@@ -110,10 +110,11 @@ class BlogPageTag(TaggedItemBase):
 
 
 class BlogPage(Page):
+    resumen = RichTextField()
     body = RichTextField()
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
-    date = models.DateField("Post date")
-    feed_image = models.ForeignKey(
+    date = models.DateField("Fecha")
+    imagen = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
@@ -133,10 +134,11 @@ class BlogPage(Page):
 BlogPage.content_panels = [
     FieldPanel('title', classname="full title"),
     FieldPanel('date'),
+    FieldPanel('resumen'),
     FieldPanel('body', classname="full"),
-    ImageChooserPanel('feed_image'),
+    ImageChooserPanel('imagen'),
     FieldPanel('tags'),
-    InlinePanel(BlogPage, 'related_links', label="Related links"),
+    InlinePanel(BlogPage, 'related_links', label="Posts relacionados"),
 ]
 
 BlogPage.promote_panels = [
