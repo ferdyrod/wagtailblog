@@ -102,8 +102,8 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-gb'
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'es-hn'
+TIME_ZONE = 'America/Tegucigalpa'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
