@@ -7,6 +7,7 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, \
     InlinePanel, PageChooserPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import indexed
+from wagtail.wagtailsnippets.models import register_snippet
 
 from modelcluster.fields import ParentalKey
 from modelcluster.tags import ClusterTaggableManager
@@ -144,3 +145,29 @@ BlogPage.content_panels = [
 BlogPage.promote_panels = [
     MultiFieldPanel(Page.promote_panels, "Common page configuration"),
 ]
+
+
+class Anuncio(models.Model):
+    nombre = models.CharField(max_length=250)
+    url = models.URLField()
+    imagen = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    class Meta:
+        verbose_name_plural = 'Anuncios'
+
+    panels = [
+        FieldPanel('nombre'),
+        FieldPanel('url'),
+        ImageChooserPanel('imagen'),
+    ]
+
+    def __unicode__(self):
+        return self.nombre + " - " + self.url
+
+register_snippet(Anuncio)
