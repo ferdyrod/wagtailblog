@@ -1,0 +1,5 @@
+{% load wagtailimages_tags %}
+
+{% for anuncio in anuncios %}
+        <p class="text-center"><a href="{{ anuncio.url }}">{% image anuncio.imagen original class="img-responsive center-block" %}</a></p>
+{% endfor %}

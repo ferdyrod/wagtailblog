@@ -164,7 +164,7 @@ class Anuncio(models.Model):
     panels = [
         FieldPanel('nombre'),
         FieldPanel('url'),
-        ImageChooserPanel('imagen'),
+        ImageChooserPanel('imagen',),
     ]
 
     def __unicode__(self):
