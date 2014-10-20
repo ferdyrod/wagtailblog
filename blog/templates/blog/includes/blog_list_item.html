@@ -1,18 +1,36 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {# Individual blog item in a list - used on blog index and home page #}
-<a class="list-group-item" href="{% pageurl blog %}">
-    <h4 class="list-group-item-heading">{{ blog.title }}</h4>
-    <p><strong>{{ blog.date|date:"j f Y" }}</strong></p>
-    {% if blog.resumen or blog.imagen %}
-        <p class="list-group-item-text">
-            {% if blog.imagen %}
-                {% image blog.imagen width-200 %}
+    <h2><a href="{% pageurl blog %}">{{ blog.title }}</a></h2>
+
+    <div class="row">
+        <div class="col-sm-8 col-md-8 pull-left">
+        {% if blog.tags  %}
+        
+            Categoria:
+            {% for tag in blog.tags.all  %}
+                 <a href="/?tag={{ tag }}">{{ tag }}</a>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div class="col-sm-2 col-md-2 pull-right">
+        <p><strong>{{ blog.date|date:"j M" }}</strong></p>
+        </div>
+
+    </div>
+    <hr/>
+    
+    <div class="row">
+        <div class="col-md-12">
+            {% if blog.resumen or blog.imagen %}
+                {% if blog.imagen %}
+                    {% image blog.imagen fill-200x200-c100 class="pull-left img-responsive img-thumbnail margin10 thumb" %}
+            
+                {% endif %}
+                {% if blog.resumen %}
+                    {{ blog.resumen|richtext }}
+                {% endif %}
             {% endif %}
-            {% if blog.resumen %}
-                {{ blog.resumen|richtext }}
-                <a href="{% pageurl blog %}">Entrar...</a>
-            {% endif %}
-        </p>
-    {% endif %}
-</a>
+            <a class="pull-left" href="{% pageurl blog %}">Entrar...</a>
+        </div>
+    </div>

@@ -8,7 +8,7 @@
             <h4>Mostrando posts etiquedas como as {{ request.GET.tag|safe }} <a href=" {% pageurl self %} " > Mostrar Todos</a></h4>
         {% endif %}
 
-        <div class="list-group">
+        <article>
             {# Uses serve method defined in models.py - allows for paging if required #}
             {# See also standard index for creating a listing with a tag #}
             {% for blog in blogs %}
@@ -16,7 +16,7 @@
             {% empty %}
                 No blogs found
             {% endfor %}
-        </div>
+        </article>
 
         <div class="row">
             <div class="col-sm-4 previous">

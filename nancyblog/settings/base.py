@@ -56,6 +56,7 @@ INSTALLED_APPS = (
 
     'core',
     'blog',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
