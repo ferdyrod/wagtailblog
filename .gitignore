@@ -8,3 +8,7 @@
 Vagrantfile.local
 /docs/_build/
 /db.sqlite3
+/less/
+/lib/
+*sublime-*
+npm*
