@@ -1,8 +1,11 @@
-
 hr {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 75%;
+}
+
+.more {
+    margin-right: 25px;
 }
 
 .margin10 {
@@ -16,10 +19,48 @@ hr {
 
 }
 
-@media (max-width:992px) { 
+.rich-text {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.rich-text img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+
+}
+
+
+footer {
+    color: #ededed;
+    margin-top: 20px;
+    background-color: #6D6E70;
+    text-align: center;
+
+}
+
+footer img {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+}
+
+.footer-menu {
+    margin-top: 35px;
+    list-style-type: none;
+}
+
+@media (max-width:991px) { 
     .desktop-only {
         display:none !important;
     }
+    .rich-text img {
+        max-width: 95%;
+    }
+
 }
 
 @media (min-width: 461px) and (max-width:768px) { 

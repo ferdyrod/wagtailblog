@@ -1,9 +1,27 @@
 {% extends "blog/base.html" %}
 {% load wagtailcore_tags %}
 
-{% block heading %}
-    <div class="page-header">
-        
-        <h2>{{ self.title}}</h2>
-    </div>   
-{% endblock heading %}
+
+{% block content %}
+    <div class="col-md-8">
+        <div class="page-header">
+            <h2>{{ self.title }} {{ self.date|date:"j F Y" }}</h2>
+        </div>  
+
+        <div class="body-content">
+          {{ self.body|richtext }}
+        </div>
+
+        {% with self.tags.all as tags %}
+            {% if tags  %}
+                <div class="page-header"><h3>Tags</h3></div>
+                {% for tag in tags.all  %}
+                     <a href="/?tag={{ tag }}"><button class="btn btn-primary" type="button">{{ tag }}</button></a>
+                {% endfor %}
+            {% endif %}
+
+        {% endwith %}
+    </div>
+
+    {# {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %} #}
+{% endblock %}
