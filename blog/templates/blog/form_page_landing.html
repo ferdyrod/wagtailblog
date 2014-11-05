@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+    <div class="col-md-8">
+        <br />
+        {{ self.texto_agradecimiento|richtext }}
+    </div>
+{% endblock %}

@@ -1,20 +1,17 @@
-{% extends "blog/base.html" %}
+{% extends "base.html" %}
 
 {% load wagtailcore_tags %}
 
 {% block content %}
     <div class="col-md-8">
-        {% if request.GET.tag|length %}
-            <h4>Mostrando posts etiquedas como as {{ request.GET.tag|safe }} <a href=" {% pageurl self %} " > Mostrar Todos</a></h4>
-        {% endif %}
-
         <article>
             {# Uses serve method defined in models.py - allows for paging if required #}
             {# See also standard index for creating a listing with a tag #}
             {% for blog in blogs %}
                 {% include "blog/includes/blog_list_item.html" %}
             {% empty %}
-                No blogs found
+                <br />
+                <p>No hay posts para esta categoria</p>
             {% endfor %}
         </article>
 

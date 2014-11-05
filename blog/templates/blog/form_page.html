@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+    <div class="col-md-8">
+        <h2>{{ self.title }}</h2>
+        {{ self.intro|richtext }} <br />
+        <form action="{% pageurl self %}" method="POST" class="form-horizontal" role="form">
+            {% csrf_token %}
+            <div class="form-group">
+                {% if form.nombre.errors %}
+                    {{ form.nombre.errors }}
+                {% endif %}
+                <label for="id_nombre" class="col-sm-2 control-label">{{ form.nombre.label }}</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="id_nombre" name="nombre" placeholder="{{ form.nombre.help_text }}">
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.correo.errors }}
+                <label for="id_correo" class="col-sm-2 control-label">{{ form.correo.label }}</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="id_correo" name="correo" placeholder="{{ form.correo.help_text }}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form.mensaje.errors }}
+                <label for="id_mensaje" class="col-sm-2 control-label">{{ form.mensaje.label }}</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="id_mensaje" name="mensaje" placeholder="{{ form.mensaje.help_text }}" rows="4"></textarea>
+                </div>
+            </div>
+            {# {{ form.as_p }} #}
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+              </div>
+        </form>
+    </div>
+
+{% endblock %}

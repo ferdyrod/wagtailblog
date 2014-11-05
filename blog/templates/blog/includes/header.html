@@ -1,4 +1,4 @@
-{% load static %}
+{% load static wagtailcore_tags %}
 
 <header>
     <div class="row">
@@ -22,13 +22,14 @@
 
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav nav-justified">
-                <li class="active"><a href="/">HOME</a></li>
-                <li><a href="#">OUTFITS</a></li>
-                <li><a href="#">ACCESORIOS</a></li>
-                <li><a href="#">BELLEZA</a></li>
-                <li><a href="#">COMIDA</a></li>
-                <li><a href="#">EVENTOS</a></li>
-                <li><a href="#">CONTACTO</a></li>
+                <li class="active"><a href="/">PRINCIPAL</a></li>
+                <li><a href="/?tag=outfits">OUTFITS</a></li>
+                <li><a href="/?tag=accesorios">ACCESORIOS</a></li>
+                <li><a href="/?tag=belleza">BELLEZA</a></li>
+                <li><a href="/?tag=comida">COMIDA</a></li>
+                <li><a href="/?tag=eventos">EVENTOS</a></li>
+                <li><a href="/?tag=cine">CINE</a></li>
+                <li><a href="/contacto">CONTACTO</a></li>
         </ul>
       </div>
 

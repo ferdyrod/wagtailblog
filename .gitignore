@@ -1,5 +1,6 @@
 *.pyc
 .DS_Store
+local.py
 /.venv/
 /*/settings/local.py
 /static/

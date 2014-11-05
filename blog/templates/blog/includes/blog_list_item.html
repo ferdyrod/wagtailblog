@@ -3,12 +3,11 @@
 
 
     <h2 class="text-center"><a href="{% pageurl blog %}">{{ blog.title }}</a></h2>
-
     <div class="row">
         <div class="col-sm-7 col-md-7 pull-left">
             {% if blog.tags  %}
             
-                Categoria:
+                Categorias:
                 {% for tag in blog.tags.all  %}
                      <a href="/?tag={{ tag }}">{{ tag }}</a>
                 {% endfor %}
