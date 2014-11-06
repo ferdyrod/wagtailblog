@@ -77,13 +77,26 @@ WSGI_APPLICATION = 'nancyblog.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 # SQLite (simplest install)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': join(PROJECT_ROOT, 'db.sqlite3'),
+#     }
+# }
+
+
+# PostgreSQL (Recommended, but requires the psycopg2 library and Postgresql development headers)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': join(PROJECT_ROOT, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['NLB_DB_NAME'],
+        'USER': os.environ['NLB_DB_USER'],
+        'PASSWORD': os.environ['NLB_DB_PWD'],
+'HOST': '',  # Set to empty string for localhost.
+'PORT': '',  # Set to empty string for default.
+'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
     }
 }
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -132,7 +145,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 LOGIN_URL = 'wagtailadmin_login'
 LOGIN_REDIRECT_URL = 'wagtailadmin_home'
 
-WAGTAIL_SITE_NAME = "nancyblog"
+WAGTAIL_SITE_NAME = "NancyLovo.com"
 
 # Use Elasticsearch as the search backend for extra performance and better search results:
 # http://wagtail.readthedocs.org/en/latest/howto/performance.html#search
