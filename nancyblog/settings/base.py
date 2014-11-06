@@ -7,7 +7,7 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
-
+import os
 from os.path import abspath, dirname, join
 
 # Absolute filesystem path to the Django project directory:
@@ -18,14 +18,14 @@ PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4^3i@tvc6dcjk!aq-_z!!5i)7!qn--!57fguoodx!x83x(k+-d'
+SECRET_KEY = os.environ["NLB_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1',]
+ALLOWED_HOSTS = ['nancylovo.com', '127.0.0.1',]
 
 
 # Application definition
@@ -83,20 +83,6 @@ DATABASES = {
         'NAME': join(PROJECT_ROOT, 'db.sqlite3'),
     }
 }
-
-# PostgreSQL (Recommended, but requires the psycopg2 library and Postgresql development headers)
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'nancyblog',
-#         'USER': 'postgres',
-#         'PASSWORD': '',
-# 'HOST': '',  # Set to empty string for localhost.
-# 'PORT': '',  # Set to empty string for default.
-# 'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
-#     }
-# }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

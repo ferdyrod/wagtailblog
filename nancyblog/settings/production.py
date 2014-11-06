@@ -1,5 +1,5 @@
 from .base import *
-
+import os
 
 # Disable debug mode
 
@@ -11,6 +11,20 @@ TEMPLATE_DEBUG = False
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
 
 COMPRESS_OFFLINE = True
+
+
+# PostgreSQL (Recommended, but requires the psycopg2 library and Postgresql development headers)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['NLB_DB_NAME'],
+        'USER': os.environ['NLB_DB_USER'],
+        'PASSWORD': os.environ['NLB_DB_PWD'],
+'HOST': '',  # Set to empty string for localhost.
+'PORT': '',  # Set to empty string for default.
+'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
+    }
+}
 
 
 # Send notification emails as a background task using Celery,
