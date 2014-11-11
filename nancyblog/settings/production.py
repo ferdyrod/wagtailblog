@@ -7,6 +7,12 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 
+EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_HOST_USER = os.environ["NLB_EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = os.environ["NLB_EMAIL_HOST_PASSWORD"]
+DEFAULT_FROM_EMAIL = os.environ["NLB_EMAIL_ADDRESS"]
+SERVER_EMAIL = os.environ["NLB_EMAIL_ADDRESS"]
+
 # Compress static files offline
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
 
