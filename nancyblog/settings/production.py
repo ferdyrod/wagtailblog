@@ -6,6 +6,12 @@ import os
 DEBUG = False
 TEMPLATE_DEBUG = False
 
+ADMINS = (
+    ('Ferdy Rodriguez', 'frodriguez@gmail.com'),
+)
+
+MANAGERS = ADMINS
+
 
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_HOST_USER = os.environ["NLB_EMAIL_HOST_USER"]
