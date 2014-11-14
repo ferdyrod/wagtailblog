@@ -27,7 +27,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^search/', include(wagtailsearch_urls)),
     url(r'^images/', include(wagtailimages_urls)),
-    url(r'^sitemap\.xml$', sitemap),
+    url('^sitemap\.xml$', sitemap),
 
     url(r'', include(wagtail_urls)),
     
