@@ -7,7 +7,7 @@
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:title" content="{{ self.title }}" />
     <meta property="og:description" content="{{ self.resumen }}" />
-    {% image self.imagen fill-600x600 as photo %}
+    {% image self.imagen fill-600x315 as photo %}
     <meta property="og:image" content="http://www.nancylovo.com{{ photo.url }}" /> 
 {% endblock metatags %}
 
