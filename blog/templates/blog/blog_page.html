@@ -1,7 +1,15 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}
+
+{% block metatags %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:title" content="{{ self.title }}" />
+    <meta property="og:description" content="{{ self.resumen }}" />
+    {% image self.imagen fill-600x600 as photo %}
+    <meta property="og:image" content="http://www.nancylovo.com{{ photo.url }}" /> 
+{% endblock metatags %}
 
 {% block content %}
     <div class="col-md-8">
