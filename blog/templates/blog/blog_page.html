@@ -23,7 +23,13 @@
 
         <div class="body-content">
           {{ self.body|richtext }}
+          <br />
+          <div class="extra_info">
+            {{ self.extra_info|richtext }}
+          </div>
+          <br />
           <p class="pull-right">Publicado el {{ self.date|date:"j \d\e F Y" }}
+
         </div>
 
         <hr/>

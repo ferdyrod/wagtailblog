@@ -114,6 +114,7 @@ class BlogPageTag(TaggedItemBase):
 class BlogPage(Page):
     resumen = RichTextField()
     body = RichTextField()
+    extra_info = RichTextField(default="")
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     date = models.DateField("Fecha")
     imagen = models.ForeignKey(
@@ -138,6 +139,7 @@ BlogPage.content_panels = [
     FieldPanel('date'),
     FieldPanel('resumen'),
     FieldPanel('body', classname="full"),
+    FieldPanel('extra_info', classname="full"),
     ImageChooserPanel('imagen'),
     FieldPanel('tags'),
     InlinePanel(BlogPage, 'related_links', label="Posts relacionados"),
