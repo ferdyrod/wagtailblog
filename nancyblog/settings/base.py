@@ -94,9 +94,9 @@ DATABASES = {
         'NAME': os.environ['NLB_DB_NAME'],
         'USER': os.environ['NLB_DB_USER'],
         'PASSWORD': os.environ['NLB_DB_PWD'],
-'HOST': '',  # Set to empty string for localhost.
-'PORT': '',  # Set to empty string for default.
-'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
+        'HOST': '',  # Set to empty string for localhost.
+        'PORT': '',  # Set to empty string for default.
+        'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
     }
 }
 # Internationalization
