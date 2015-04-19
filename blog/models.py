@@ -7,7 +7,7 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, \
     InlinePanel, PageChooserPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailsearch import indexed
+from wagtail.wagtailsearch import index
 from wagtail.wagtailsnippets.models import register_snippet
 
 from modelcluster.fields import ParentalKey
@@ -54,7 +54,7 @@ class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
 
     search_fields = Page.search_fields + (
-        indexed.SearchField('intro'),
+        index.SearchField('intro'),
     )
 
     @property
@@ -126,7 +126,7 @@ class BlogPage(Page):
     )
 
     search_fields = Page.search_fields + (
-        indexed.SearchField('body'),
+        index.SearchField('body'),
     )
 
     @property
@@ -178,6 +178,7 @@ register_snippet(Anuncio)
 
 class FormField(AbstractFormField):
     page = ParentalKey('FormPage', related_name='form_fields')
+
 
 class FormPage(AbstractEmailForm):
     intro = RichTextField(blank=True)
