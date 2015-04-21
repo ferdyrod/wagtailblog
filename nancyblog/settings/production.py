@@ -19,10 +19,29 @@ EMAIL_HOST_PASSWORD = os.environ["NLB_EMAIL_HOST_PASSWORD"]
 DEFAULT_FROM_EMAIL = os.environ["NLB_EMAIL_ADDRESS"]
 SERVER_EMAIL = os.environ["NLB_EMAIL_ADDRESS"]
 
+#####################################
+#           s3 Storage              #
+#####################################
+DEFAULT_FILE_STORAGE = 'nancyblog.s3utils.MediaS3BotoStorage'
+STATICFILES_STORAGE = 'nancyblog.s3utils.StaticS3BotoStorage'
+
+AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY"]
+AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+AWS_STORAGE_BUCKET_NAME = 'nancyblogbucket'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+STATIC_DIR = 'static/'
+MEDIA_DIR = 'media/'
+STATIC_URL = 'https://%s/%s' % (AWS_S3_CUSTOM_DOMAIN, STATIC_DIR)
+MEDIA_URL = 'https://%s/%s' % (AWS_S3_CUSTOM_DOMAIN, MEDIA_DIR)
+
+
 # Compress static files offline
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
 
 COMPRESS_OFFLINE = True
+COMPRESS_ENABLED = True
+COMPRESS_URL = STATIC_URL
+COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 
 # Send notification emails as a background task using Celery,
